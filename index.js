@@ -1,11 +1,11 @@
-var readlineSync= require("readline-sync");
-var chalk= require("chalk");
-var monthDays=[31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-var isLeapYearFlag = false;
+const readlineSync= require("readline-sync");
+const chalk= require("chalk");
+const monthDays=[31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+let isLeapYearFlag = false;
 
 
 console.log(chalk.cyanBright("******Welcome******\n\n"));
-var userName = readlineSync.question(chalk.greenBright("Hey! May i know your name?\n"));
+const userName = readlineSync.question(chalk.greenBright("Hey! May i know your name?\n"));
 
 console.log(chalk.cyanBright(`\nHi ${userName}, I will tell you if you are born in a leap year\n`));
 
@@ -20,13 +20,13 @@ else{
 
 //function to take input untill valid date is entered
 function takeDate(){
-  var inputDate = readlineSync.question(chalk.greenBright("Please enter your birthdate in the format 'DD/MM/YYYY'\n"));
+  const inputDate = readlineSync.question(chalk.greenBright("Please enter your birthdate in the format 'DD/MM/YYYY'\n"));
 
   //checking if date is valid
-  var dateArray= inputDate.split('/');
-  var YY=dateArray[2];
-  var MM=dateArray[1];
-  var DD=dateArray[0];
+  const dateArray= inputDate.split('/');
+  const YY=dateArray[2];
+  const MM=dateArray[1];
+  const DD=dateArray[0];
   
   //to check if the input date is not string
   if(isNaN(YY) || isNaN(MM) || isNaN(DD)){
@@ -39,7 +39,7 @@ function takeDate(){
     takeDate();
   }
   //to check if the input date is not valid
-  else if(MM>12 || DD>31 || YY>=2020 || MM<=0 ||DD<=0 ||YY<=0){
+  else if(MM>12 || DD>31 || YY>=9999 || MM<=0 ||DD<=0 ||YY<=0){
     console.log(chalk.redBright("\nYou have entered invalid date"))
     takeDate();
   }
